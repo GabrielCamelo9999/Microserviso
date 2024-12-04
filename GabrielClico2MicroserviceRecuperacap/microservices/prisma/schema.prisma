@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Registro {
+  id            Int     @id @default(autoincrement()) // Definição do id como chave primária
+  nome          String  
+  nomeExercicio String  @map("nome_exercicio") // Mapeamento para o nome_exercicio
+  tempo         Int
+}
